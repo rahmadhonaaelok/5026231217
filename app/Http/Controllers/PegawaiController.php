@@ -2,17 +2,27 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use App\Http\Controllers\Controller;
+=======
+>>>>>>> 44061e5 (pertemuan14)
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class PegawaiController extends Controller
 {
+<<<<<<< HEAD
     //
     public function index()
 	{
     	// mengambil data dari table pegawai
 		$pegawai = DB::table('pegawai')->get();
+=======
+    public function index()
+	{
+    	// mengambil data dari table pegawai
+		$pegawai = DB::table('pegawai')->paginate(10);
+>>>>>>> 44061e5 (pertemuan14)
 
     	// mengirim data pegawai ke view index
 		return view('index2',['pegawai' => $pegawai]);
@@ -76,4 +86,23 @@ class PegawaiController extends Controller
 		// alihkan halaman ke halaman pegawai
 		return redirect('/pegawai');
 	}
+<<<<<<< HEAD
 }
+=======
+
+	public function cari(Request $request)
+{
+	// menangkap data pencarian
+	$cari = $request->cari;
+
+ 	// mengambil data dari table pegawai sesuai pencarian data
+	$pegawai = DB::table('pegawai')
+	->where('pegawai_nama','like',"%".$cari."%")
+	->paginate();
+
+    	// mengirim data pegawai ke view index
+	return view('index2',['pegawai' => $pegawai,'cari' => $cari]);
+
+}
+}
+>>>>>>> 44061e5 (pertemuan14)
