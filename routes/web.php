@@ -7,6 +7,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\Coba;
 use App\Http\Controllers\MejaController;
+use App\Http\Controllers\KeranjangBelanjaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,3 +31,9 @@ Route::get('pertama', function () {
 });
 
 Route::get('/meja', [MejaController::class, 'index']);
+
+Route::get('/keranjang', [KeranjangBelanjaController::class, 'index'])->name('keranjang.index');
+Route::get('/keranjang/create', [KeranjangBelanjaController::class, 'create'])->name('keranjang.create');
+Route::post('/keranjang', [KeranjangBelanjaController::class, 'store'])->name('keranjang.store');
+Route::delete('/keranjang/{id}', [KeranjangBelanjaController::class, 'destroy'])->name('keranjang.destroy');
+
