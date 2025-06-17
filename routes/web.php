@@ -8,6 +8,9 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\Coba;
 use App\Http\Controllers\MejaController;
 use App\Http\Controllers\KeranjangBelanjaController;
+use App\Http\Controllers\karyawanController ;
+use App\Http\Controllers\Karyawan2Controller;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,3 +40,14 @@ Route::get('/keranjang/create', [KeranjangBelanjaController::class, 'create'])->
 Route::post('/keranjang', [KeranjangBelanjaController::class, 'store'])->name('keranjang.store');
 Route::delete('/keranjang/{id}', [KeranjangBelanjaController::class, 'destroy'])->name('keranjang.destroy');
 
+Route::get('/karyawan', [KaryawanController::class, 'index']);
+Route::get('/karyawan/tambah', [KaryawanController::class, 'tambah']);
+Route::post('/karyawan/store', [KaryawanController::class, 'store']);
+Route::get('/karyawan/hapus/{id}', [KaryawanController::class, 'hapus']);
+Route::get('/karyawan/cari', [KaryawanController::class, 'cari']);
+
+Route::get('/karyawan', [Karyawan2Controller::class, 'index']);
+Route::get('/karyawan/tambah', [Karyawan2Controller::class, 'tambah']);
+Route::post('/karyawan/store', [Karyawan2Controller::class, 'store']);
+Route::get('/karyawan/hapus/{id}', [Karyawan2Controller::class, 'hapus']);
+Route::get('/karyawan/cari', [Karyawan2Controller::class, 'cari']);
