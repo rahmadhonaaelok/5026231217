@@ -1,25 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
-
 use App\Models\Meja;
+use Illuminate\Support\Facades\DB;
 
 class MejaController extends Controller
 {
     public function index()
     {
-        $data = Meja::all();
-        return view('meja.index', compact('data'));
-    }
-}
-
-class MejaController extends Controller
-{
-    public function index()
-    {
-        $this->logActivity(); 
-        $meja = meja::all();
+        $this->logActivity();
+        $meja = Meja::all();
         return view('meja.index', compact('meja'));
     }
 
@@ -32,21 +24,21 @@ class MejaController extends Controller
     public function store(Request $request)
     {
         $this->logActivity();
-        meja ::create($request->all());
+        Meja::create($request->all());
         return redirect('/meja');
     }
 
     public function edit($id)
     {
-        $this->logActivity(); 
-        $meja = meja::find($id);
+        $this->logActivity();
+        $meja = Meja::find($id);
         return view('meja.edit', compact('meja'));
     }
 
     public function update(Request $request, $id)
     {
         $this->logActivity();
-        $meja = meja::find($id);
+        $meja = Meja::find($id);
         $meja->update($request->all());
         return redirect('/meja');
     }
@@ -54,13 +46,14 @@ class MejaController extends Controller
     public function destroy($id)
     {
         $this->logActivity();
-        meja::destroy($id);
+        Meja::destroy($id);
         return redirect('/meja');
     }
-}
-public function logActivity()
-{
-    \DB::table('logactivity')->insert([
-        'namaroute' => request()->route()->uri(),
-    ]);
+
+    private function logActivity()
+    {
+        DB::table('logactivity')->insert([
+            'namaroute' => request()->route()->uri(),
+        ]);
+    }
 }

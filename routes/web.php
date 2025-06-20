@@ -34,7 +34,6 @@ Route::get('pertama', function () {
 });
 
 Route::get('/meja', [MejaController::class, 'index']);
-Route::get('/meja', [MejaController::class, 'index']);
 Route::get('/meja/tambah', [MejaController::class, 'create']);
 Route::post('/meja/store', [MejaController::class, 'store']);
 Route::get('/meja/edit/{id}', [MejaController::class, 'edit']);
