@@ -34,6 +34,13 @@ Route::get('pertama', function () {
 });
 
 Route::get('/meja', [MejaController::class, 'index']);
+Route::get('/meja', [MejaController::class, 'index']);
+Route::get('/meja/tambah', [MejaController::class, 'create']);
+Route::post('/meja/store', [MejaController::class, 'store']);
+Route::get('/meja/edit/{id}', [MejaController::class, 'edit']);
+Route::post('/meja/update/{id}', [MejaController::class, 'update']);
+Route::get('/meja/delete/{id}', [MejaController::class, 'destroy']);
+
 
 Route::get('/keranjang', [KeranjangBelanjaController::class, 'index'])->name('keranjang.index');
 Route::get('/keranjang/create', [KeranjangBelanjaController::class, 'create'])->name('keranjang.create');
