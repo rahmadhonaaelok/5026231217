@@ -38,8 +38,8 @@ Route::get('/meja/tambah', [MejaController::class, 'create']);
 Route::post('/meja/store', [MejaController::class, 'store']);
 Route::get('/meja/edit/{id}', [MejaController::class, 'edit']);
 Route::post('/meja/update/{id}', [MejaController::class, 'update']);
-Route::get('/meja/delete/{id}', [MejaController::class, 'destroy']);
-
+Route::get('/meja/hapus/{id}', [MejaController::class, 'hapus']);
+Route::get('/meja/cari', [MejaController::class, 'cari']);
 
 Route::get('/keranjang', [KeranjangBelanjaController::class, 'index'])->name('keranjang.index');
 Route::get('/keranjang/create', [KeranjangBelanjaController::class, 'create'])->name('keranjang.create');
